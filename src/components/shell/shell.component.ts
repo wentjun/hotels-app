@@ -1,4 +1,4 @@
-import {PolymerElement, html} from '@polymer/polymer/polymer-element';
+import { PolymerElement, html } from '@polymer/polymer/polymer-element';
 import '@polymer/app-layout/app-drawer/app-drawer';
 import '@polymer/app-layout/app-drawer-layout/app-drawer-layout';
 import '@polymer/app-layout/app-header/app-header';
@@ -7,6 +7,8 @@ import '@polymer/app-layout/app-scroll-effects/app-scroll-effects';
 import '@polymer/app-layout/app-toolbar/app-toolbar';
 import '@polymer/app-route/app-location';
 import '@polymer/app-route/app-route';
+import '@polymer/iron-ajax/iron-ajax.js';
+import '@polymer/iron-image/iron-image.js';
 import '@polymer/iron-pages/iron-pages';
 import '@polymer/iron-selector/iron-selector';
 import '@polymer/paper-icon-button/paper-icon-button';
@@ -35,39 +37,30 @@ export class MyApp extends PolymerElement {
       page: {
         type: String,
         reflectToAttribute: true,
-        observer: '_pageChanged',
+        observer: '_pageChanged'
       },
       routeData: Object,
       subroute: Object,
       // This shouldn't be necessary, but the Analyzer isn't picking up
       // Polymer.Element#rootPath
-      rootPath: String,
+      rootPath: String
     };
   }
 
   static get observers() {
-    return [
-      '_routePageChanged(routeData.page)',
-    ];
+    return ['_routePageChanged(routeData.page)'];
   }
 
   _routePageChanged(page: string) {
     // If no page was found in the route data, page will be an empty string.
     // Default to 'view1' in that case.
     this.page = page || 'view1';
-
-    // Close a non-persistent drawer when the page & route are changed.
-    if (!this.$.drawer.persistent) {
-      this.$.drawer.close();
-    }
   }
 
   _pageChanged(page: string) {
     // Load page import on demand. Show 404 page if fails
-    import(
-      /* webpackMode: "lazy" */
-      `../${page}/${page}.component`
-      ).catch(this._showPage404.bind(this));
+    import(/* webpackMode: "lazy" */
+    `../${page}/${page}.component`).catch(this._showPage404.bind(this));
   }
 
   _showPage404() {

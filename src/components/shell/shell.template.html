@@ -9,9 +9,8 @@
     data="{{routeData}}"
     tail="{{subroute}}">
 </app-route>
-
+<!--
 <app-drawer-layout fullbleed narrow="{{narrow}}">
-  <!-- Drawer content -->
   <app-drawer id="drawer" slot="drawer" swipe-open="[[narrow]]">
     <app-toolbar>Menu</app-toolbar>
     <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
@@ -21,7 +20,6 @@
     </iron-selector>
   </app-drawer>
 
-  <!-- Main content -->
   <app-header-layout has-scrolling-region>
 
     <app-header slot="header" condenses reveals effects="waterfall">
@@ -43,3 +41,24 @@
     </iron-pages>
   </app-header-layout>
 </app-drawer-layout>
+-->
+
+<iron-ajax auto
+          url="http://137.116.129.201/api/hotels"
+          handle-as="json"
+          on-response="_handleResponse"
+          last-response="{{ajaxResponse}}"></iron-ajax>
+
+<div class="card">
+  <div class="circle">1</div>
+  <h1>View One</h1>
+  <p>Ut labores minimum atomorum pro. Laudem tibique ut has.</p>
+  <p>Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit.</p>
+</div>
+
+<dom-repeat items="{{ajaxResponse}}">
+  <template>
+    <div>First name: <span>{{item.name}}</span></div>
+    <div>Last name: <span>{{item.id}}</span></div>
+  </template>
+</dom-repeat>
