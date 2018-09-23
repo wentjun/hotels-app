@@ -46,19 +46,29 @@
 <iron-ajax auto
           url="http://137.116.129.201/api/hotels"
           handle-as="json"
-          on-response="_handleResponse"
           last-response="{{ajaxResponse}}"></iron-ajax>
 
-<div class="card">
-  <div class="circle">1</div>
-  <h1>View One</h1>
-  <p>Ut labores minimum atomorum pro. Laudem tibique ut has.</p>
-  <p>Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit.</p>
+<div class="hotels-list">
+  <div class="hotel-card">
+    <div class="hotel-card__image">
+      <iron-image class="hotel-card__iron-image" fade src="https://res.cloudinary.com/wego/image/upload/w_220,h_220,c_fill,f_auto,fl_lossy,q_auto,g_auto/v1488297200/Partner/hotels/880819/81244635.jpg"></iron-image>
+    </div>
+    <div class="hotel-card__main-body">
+    </div>
+  </div>
+  <div class="hotel-card">a</div>
+  <div class="hotel-card">a</div>
+  <div class="hotel-card">a</div>
+  <div class="hotel-card">a</div>
+  <div class="hotel-card">a</div>
+  <div class="hotel-card">a</div>
 </div>
 
+<!--
 <dom-repeat items="{{ajaxResponse}}">
   <template>
-    <div>First name: <span>{{item.name}}</span></div>
-    <div>Last name: <span>{{item.id}}</span></div>
+    <div>Name: <span>{{item.name}}</span></div>
+    <div>ID: <span>{{item.id}}</span></div>
   </template>
 </dom-repeat>
+-->

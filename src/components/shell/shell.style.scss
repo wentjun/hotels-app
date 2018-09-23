@@ -5,6 +5,10 @@
   display: block;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 app-drawer-layout:not([narrow]) [drawer-toggle] {
   display: none;
 }
@@ -32,5 +36,50 @@ app-header {
       color: black;
       font-weight: bold;
     }
+  }
+}
+
+.hotels-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.hotel-card {
+  height: calc(100vh / 6);
+  background: white;
+  text-align: center;
+  line-height: 100px;
+  border: 1px solid #e6e6e6;
+  padding: 2px;
+  display: flex;
+  flex-flow: row wrap;
+
+  .hotel-card__image-container {
+    flex: 1 auto;
+    order: 1;
+  }
+
+  .hotel-card__main-body {
+    flex: 1 auto;
+    order: 2;
+  }
+}
+
+.hotel-card__iron-image {
+  height: 100%;
+  --iron-image-height: 100%;
+}
+
+@media all and (max-width: 500px) {
+  /* On small screens, list-view/column will be used*/
+  .list {
+    flex-direction: column;
+  }
+}
+
+@media all and (min-width: 500px) {
+  /* on larger screens, grid view will be used */
+  .hotel-card {
+    flex: calc(100% / 3);
   }
 }
