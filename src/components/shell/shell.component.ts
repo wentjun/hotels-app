@@ -8,6 +8,8 @@ import '@polymer/app-layout/app-toolbar/app-toolbar';
 import '@polymer/app-route/app-location';
 import '@polymer/app-route/app-route';
 import '@polymer/iron-ajax/iron-ajax.js';
+import '@polymer/iron-icon/iron-icon.js';
+import '@polymer/iron-iconset/iron-iconset.js';
 import '@polymer/iron-image/iron-image.js';
 import '@polymer/iron-pages/iron-pages';
 import '@polymer/iron-selector/iron-selector';

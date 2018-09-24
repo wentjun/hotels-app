@@ -1,8 +1,22 @@
+/* base styles and base overwrites */
 :host {
   --app-primary-color: #4285f4;
   --app-secondary-color: black;
 
   display: block;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+  text-align: left;
+
+  li {
+    font-size: 0.8em;
+  }
 }
 
 app-drawer-layout:not([narrow]) [drawer-toggle] {
@@ -32,5 +46,113 @@ app-header {
       color: black;
       font-weight: bold;
     }
+  }
+}
+
+/* Main grid/list view */
+.hotels-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Hotel card classes */
+
+.hotel-card {
+  height: calc(100vh / 6);
+  background: white;
+  border: 1px solid #e6e6e6;
+  padding: 2px;
+
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.hotel-card > div {
+  flex: 1 auto;
+}
+
+/* Hotel image block */
+.hotel-card__image-container {
+  max-width: 30vw;
+}
+
+.hotel-card__iron-image {
+  height: 100%;
+  --iron-image-height: 100%;
+  object-fit: contain;
+}
+
+/* Hotel meta data block */
+
+.hotel-card__main-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.hotel-card__main-body > div {
+  font-size: 0.8em;
+}
+
+.hotel-card__rating-star {
+  --iron-image-height: 1em;
+}
+
+.hotel-card__score-container {
+  max-height: 40%;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.hotel-card__score-container > div {
+  flex: 1 auto;
+}
+
+.bubble-container {
+  max-width: 39px;
+}
+
+.hotel-card__score-bubble {
+  width: 81px !important;
+  transform: scale(0.4, 0.4) translate(-60px, -70px);
+  -ms-transform: scale(0.4, 0.4) translate(-60px, -70px);
+  -webkit-transform: scale(0.4, 0.4) translate(-60px -70px);
+}
+
+.hotel-card__score-reviews {
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  align-content: center;
+}
+
+/* Hotel pricing block */
+
+.hotel-card__price {
+  color: #65a938;
+  padding: 1em;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-end;
+
+  small {
+    bottom: 0.4em;
+    position: relative;
+  }
+}
+
+@media all and (max-width: 500px) {
+  /* On small screens, list-view/column will be used*/
+  .hotels-list {
+    flex-direction: column;
+  }
+}
+
+@media all and (min-width: 500px) {
+  /* on larger screens, grid view will be used */
+  .hotel-card {
+    flex: calc(100% / 3);
   }
 }
