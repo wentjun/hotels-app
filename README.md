@@ -20,12 +20,29 @@ Future tasks:
 ### Basic Setup
 
 - Install the project dependencies
+
   ```bash
   yarn install
   ```
-  _This will automatically install both the frontend and the build tools dependencies.
-  Go on reading to understand the project structure and why it is organized in this way._
+
 - Run the project
+  ```bash
+  yarn serve
+  ```
+  _You may face this error message on the console when you first install and run the project._
+  `Failed to execute 'define' on 'CustomElementRegistry': this name has already been used with this registry`
+- If this happens,
+  ```bash
+  rm -rf node_modules package-lock.json
+  ```
+- Reinstall the dependencies without yarn
+
+  ```bash
+  npm i
+  ```
+
+- Run the project
+
   ```bash
   yarn serve
   ```
