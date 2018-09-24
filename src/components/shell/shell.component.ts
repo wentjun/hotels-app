@@ -103,4 +103,27 @@ export class MyApp extends PolymerElement {
 
     return iconType;
   }
+
+  _renderScoreSummary(score: Number) {
+    let scoreSummary = '';
+    switch (true) {
+      case score < 68:
+        scoreSummary = 'Poor';
+        break;
+      case score < 75:
+        scoreSummary = 'Fair';
+        break;
+      case score < 80:
+        scoreSummary = 'Good';
+        break;
+      case score < 86:
+        scoreSummary = 'Very Good';
+        break;
+      case score <= 100:
+        scoreSummary = 'Excellent';
+        break;
+    }
+
+    return scoreSummary;
+  }
 }
