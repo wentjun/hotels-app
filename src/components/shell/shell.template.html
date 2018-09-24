@@ -50,7 +50,7 @@
 
 <iron-iconset name="review-score"
               src="https://assets.wego.com/image/sprite/reviewscore"
-              icons="good fair bad"
+              icons="good fair poor"
               size="95">
 </iron-iconset>
 <!--
@@ -125,7 +125,7 @@
         </div>
         <div class="hotel-card__score-container">
           <div class="bubble-container">
-            <iron-icon class="hotel-card__score-bubble" icon="review-score:good"></iron-icon>
+            <iron-icon class="hotel-card__score-bubble" icon$="review-score:[[_renderScoreBubbleColour(item.review.score)]]"></iron-icon>
           </div>
           <div>
             <div>
