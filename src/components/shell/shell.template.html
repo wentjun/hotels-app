@@ -46,14 +46,14 @@
 <iron-ajax auto
           url="http://137.116.129.201/api/hotels"
           handle-as="json"
-          last-response="{{ajaxResponse}}"></iron-ajax>
+          last-response="{{hotelsList}}"></iron-ajax>
 
 <iron-iconset name="review-score"
               src="https://assets.wego.com/image/sprite/reviewscore"
               icons="good fair bad"
               size="95">
 </iron-iconset>
-
+<!--
 <div class="hotels-list">
   <div class="hotel-card">
     <div class="hotel-card__image-container">
@@ -83,33 +83,6 @@
           </div>
         </div>
       </div>
-      <!--
-      <div class="vertical-center">
-        <ul>
-          <li>
-            <strong>Anulekha Resort and Villa</strong>
-          </li>
-          <li>
-            <iron-image class="hotel-card__rating-star" fade src="https://assets.wego.com/image/upload/kabru/hstar.png"></iron-image>
-            Ubud
-          </li>
-          <li>
-            17.4008km to city centre
-          </li>
-          <li>
-            <div class="hotel-card__score-container">
-              <iron-icon class="hotel-card__score-bubble" icon="review-score:good"></iron-icon>
-              <div class="samplee">
-                Excellent
-                <br/>
-                559 reviews
-              </div>
-            </div>
-          </li>
-
-        </ul>
-      </div>
-      -->
     </div>
 
     <div class="hotel-card__price">
@@ -125,12 +98,52 @@
   <div class="hotel-card">a</div>
   <div class="hotel-card">a</div>
 </div>
-
-<!--
-<dom-repeat items="{{ajaxResponse}}">
+-->
+<div class="hotels-list">
+<dom-repeat items="{{hotelsList}}">
   <template>
-    <div>Name: <span>{{item.name}}</span></div>
-    <div>ID: <span>{{item.id}}</span></div>
+    <div class="hotel-card">
+
+      <!-- side image -->
+      <div class="hotel-card__image-container">
+        <iron-image class="hotel-card__iron-image" fade src="{{item.image}}"></iron-image>
+      </div>
+
+      <!-- main body -->
+      <div class="hotel-card__main-body">
+        <div>
+          <strong>{{item.name}}</strong>
+        </div>
+        <div>
+          <iron-image class="hotel-card__rating-star" fade src="https://assets.wego.com/image/upload/kabru/hstar.png"></iron-image>
+          {{item.district}}
+        </div>
+        <div>
+          {{item.distanceToCityCentre}}km to city centre
+        </div>
+        <div class="hotel-card__score-container">
+          <div class="bubble-container">
+            <iron-icon class="hotel-card__score-bubble" icon="review-score:good"></iron-icon>
+          </div>
+          <div>
+            <div>
+              Excellent
+            </div>
+            <div>
+              {{item.review.reviewsCount}} reviews
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- pricing/currency -->
+      <div class="hotel-card__price">
+        <div>
+          <small>S$</small>{{item.amount}}
+        </div>
+      </div>
+
+    </div>
   </template>
 </dom-repeat>
--->
+</div>
