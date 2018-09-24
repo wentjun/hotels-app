@@ -36,6 +36,15 @@ export class MyApp extends PolymerElement {
 
   static get properties() {
     return {
+      totalNo: {
+        type: Number,
+        value: 5
+      },
+      _arrayContainer: {
+        type: Array,
+        value: [],
+        computed: '_numberToArray(totalNo)'
+      },
       page: {
         type: String,
         reflectToAttribute: true,
@@ -67,5 +76,14 @@ export class MyApp extends PolymerElement {
 
   _showPage404() {
     this.page = 'view404';
+  }
+
+  _renderStars(starsCount: Number) {
+    const starCountArray = [];
+    for (var i = 0; i < starsCount; ++i) {
+      starCountArray.push(i);
+    }
+
+    return starCountArray;
   }
 }
