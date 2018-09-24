@@ -1,3 +1,35 @@
+<h1 align="center">Hotel List Polymer App</h1>
+
+A quick description about the hotel list polymer app:
+
+- Basic hotels list app built on Polymer and Typescript.
+- Most of my code is written in ./src/components/shell
+- `master` branch contains the most updated code; `develop` branch contains my various feature branches.
+- Starter kit credit goes to https://github.com/Dabolus/polymer3-webpack-starter-kit
+
+Additional comments:
+
+- In order to optimise performance, `dom-repeat`'s `initialCount` and `targetFramerate` properties have been used.
+- For further iterations, API endpoints will require some form of pagination options/parameters in order to improve loading speed.
+
+Future tasks:
+
+- Loading animation
+- Routing
+
+### Basic Setup
+
+- Install the project dependencies
+  ```bash
+  yarn install
+  ```
+  _This will automatically install both the frontend and the build tools dependencies.
+  Go on reading to understand the project structure and why it is organized in this way._
+- Run the project
+  ```bash
+  yarn serve
+  ```
+
 <p align="center">
   <img src="https://dabolus.github.io/polymer3-webpack-starter-kit/p+w.svg">
 </p>
@@ -17,6 +49,7 @@ This starter kit was built from scratch to allow you to start using today
 the features of tomorrow.
 
 Features:
+
 - Latest Polymer 3 preview
 - Components split into component class, styles and templates. No more huge files with mixed content!
 - TypeScript with TSLint preconfigured, so that you can write reliable, high quality code
@@ -30,6 +63,7 @@ Features:
 - Basic [Firebase](https://firebase.google.com/) configuration to allow easy deployment out of the box
 
 ### Preview
+
 You can see an online preview of the project on my [Github Pages](https://dabolus.github.io/polymer3-webpack-starter-kit/).
 
 _Note that GH Pages does not currently support routing all the requests to an index.html, so you won't be able to link
@@ -37,6 +71,7 @@ to a specific page of this online preview. However, you can still switch from on
 once you've loaded the index._
 
 ### Setup
+
 - Install [Node.js](https://nodejs.org). Because of the syntax used in the configuration files,
   at least `v8.3` is required. If you want to feel safe, the latest LTS will work well.
 - Install [yarn](https://yarnpkg.com)
@@ -58,6 +93,7 @@ once you've loaded the index._
 - Profit!
 
 ### Available scripts
+
 ```bash
 yarn serve
 # Starts webpack dev server with live reload on http://localhost:8080
@@ -80,11 +116,13 @@ yarn deploy [...args]
 ```
 
 ### Project configuration
+
 You can find a lot of useful configuration options inside the `conf/app.config.js` file.
 If these options aren't enough for you, you can always edit webpack configuration and everything
 else at you needs.
 
 ### Project Structure
+
 ---
 
 <details>
@@ -422,6 +460,7 @@ else at you needs.
 ---
 
 ### Contributing
+
 **PRs are welcome!**
 You noticed a bug, a possible improvement or whatever?
 Any help is always appreciated, so don't hesitate opening one!
