@@ -147,8 +147,15 @@ ul {
     position: relative;
   }
 }
+/* On small phones, potrait mode - i.e Iphone X */
+@media only screen and (min-width: 375px) and (orientation: landscape) {
+  .hotel-card__image-container {
+    max-width: 25vw;
+    width: 20vw;
+  }
+}
 
-/* On phones, landscape mode - i.e Iphone */
+/* On phones, landscape mode - i.e Iphone 7/7 Plus */
 @media only screen and (min-width: 640px) and (orientation: landscape) {
   .hotel-card {
     height: calc(100vh / 3);
@@ -180,17 +187,24 @@ ul {
 
 /* On tablets, potrait mode - i.e Ipad */
 @media only screen and (min-width: 768px) and (orientation: potrait) {
-  .hotel-card__score-bubble-text {
-    top: 35%;
-  }
-
   .hotel-card__price {
     padding: 2em;
   }
+
+  .hotel-card__score-bubble-text {
+    top: 35%;
+  }
 }
 
-/* On tablets, potrait mode, and desktop screens,  and above */
-@media only screen and (min-width: 1100px) {
+/* On larger tablets, potrait mode */
+@media only screen and (min-width: 1024px) {
+  .hotel-card__score-bubble-text {
+    top: 25%;
+  }
+}
+
+/* On larger tablets, landscape mode, and desktop screens,  and above */
+@media screen and (min-width: 1100px) {
   .hotels-list {
     padding: 0 25vw 0 25vw;
   }
@@ -198,5 +212,15 @@ ul {
   .hotel-card__image-container {
     max-width: 20vw;
     width: 20vw;
+  }
+
+  .hotel-card__score-bubble-text {
+    top: 25%;
+  }
+}
+
+@media screen and (min-width: 1300px) {
+  .hotel-card__score-bubble-text {
+    top: 20%;
   }
 }
