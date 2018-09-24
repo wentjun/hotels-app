@@ -36,6 +36,10 @@ export class MyApp extends PolymerElement {
 
   static get properties() {
     return {
+      totalNo: {
+        type: Number,
+        value: 5
+      },
       page: {
         type: String,
         reflectToAttribute: true,
@@ -67,5 +71,66 @@ export class MyApp extends PolymerElement {
 
   _showPage404() {
     this.page = 'view404';
+  }
+
+  _renderStars(starsCount: Number) {
+    const starCountArray = [];
+    for (var i = 0; i < starsCount; ++i) {
+      starCountArray.push(i);
+    }
+
+    return starCountArray;
+  }
+
+  _renderScoreBubbleColour(score: Number) {
+    let iconType = '';
+    switch (true) {
+      case score < 68:
+        iconType = 'poor';
+        break;
+      case score < 75:
+        iconType = 'fair';
+        break;
+      case score <= 100:
+        iconType = 'good';
+        break;
+    }
+
+    return iconType;
+  }
+
+  _renderScoreSummary(score: Number) {
+    let scoreSummary = '';
+    switch (true) {
+      case score < 68:
+        scoreSummary = 'Poor';
+        break;
+      case score < 75:
+        scoreSummary = 'Fair';
+        break;
+      case score < 80:
+        scoreSummary = 'Good';
+        break;
+      case score < 86:
+        scoreSummary = 'Very Good';
+        break;
+      case score <= 100:
+        scoreSummary = 'Excellent';
+        break;
+    }
+
+    return scoreSummary;
+  }
+
+  _roundUpDistance(distance: Number) {
+    return distance.toFixed(2);
+  }
+
+  _checkReviewsCountDefined(reviewsCount: Number) {
+    if (!reviewsCount) {
+      return 0;
+    } else {
+      return reviewsCount;
+    }
   }
 }

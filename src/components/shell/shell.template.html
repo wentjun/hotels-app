@@ -9,128 +9,68 @@
     data="{{routeData}}"
     tail="{{subroute}}">
 </app-route>
-<!--
-<app-drawer-layout fullbleed narrow="{{narrow}}">
-  <app-drawer id="drawer" slot="drawer" swipe-open="[[narrow]]">
-    <app-toolbar>Menu</app-toolbar>
-    <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
-      <a name="view1" href="[[rootPath]]view1">View One</a>
-      <a name="view2" href="[[rootPath]]view2">View Two</a>
-      <a name="view3" href="[[rootPath]]view3">View Three</a>
-    </iron-selector>
-  </app-drawer>
-
-  <app-header-layout has-scrolling-region>
-
-    <app-header slot="header" condenses reveals effects="waterfall">
-      <app-toolbar>
-        <paper-icon-button icon="my-icons:menu" drawer-toggle></paper-icon-button>
-        <div main-title>My App</div>
-      </app-toolbar>
-    </app-header>
-
-    <iron-pages
-        selected="[[page]]"
-        attr-for-selected="name"
-        fallback-selection="view404"
-        role="main">
-      <my-view1 name="view1"></my-view1>
-      <my-view2 name="view2" route="{{subroute}}"></my-view2>
-      <my-view3 name="view3" route="{{subroute}}"></my-view3>
-      <my-view404 name="view404"></my-view404>
-    </iron-pages>
-  </app-header-layout>
-</app-drawer-layout>
--->
 
 <iron-ajax auto
           url="http://137.116.129.201/api/hotels"
           handle-as="json"
-          last-response="{{ajaxResponse}}"></iron-ajax>
+          last-response="{{hotelsList}}"></iron-ajax>
 
 <iron-iconset name="review-score"
               src="https://assets.wego.com/image/sprite/reviewscore"
-              icons="good fair bad"
+              icons="good fair poor"
               size="95">
 </iron-iconset>
 
 <div class="hotels-list">
-  <div class="hotel-card">
-    <div class="hotel-card__image-container">
-      <iron-image class="hotel-card__iron-image" fade src="https://res.cloudinary.com/wego/image/upload/w_220,h_220,c_fill,f_auto,fl_lossy,q_auto,g_auto/v1488297200/Partner/hotels/880819/81244635.jpg"></iron-image>
-    </div>
-    <div class="hotel-card__main-body">
-      <div>
-        <strong>Anulekha Resort and Villa</strong>
+<dom-repeat items="{{hotelsList}}" initialCount="10" targetFramerate="20">
+  <template>
+    <div class="hotel-card">
+
+      <!-- side image -->
+      <div class="hotel-card__image-container">
+        <iron-image class="hotel-card__iron-image" preventLoad="true" preload src="{{item.image}}"></iron-image>
       </div>
-      <div>
-        <iron-image class="hotel-card__rating-star" fade src="https://assets.wego.com/image/upload/kabru/hstar.png"></iron-image>
-        Ubud
-      </div>
-      <div>
-        17.4008km to city centre
-      </div>
-      <div class="hotel-card__score-container">
-        <div class="bubble-container">
-          <iron-icon class="hotel-card__score-bubble" icon="review-score:good"></iron-icon>
+
+      <!-- main body -->
+      <div class="hotel-card__main-body">
+        <div class="hotel-card__name">
+          <strong>{{item.name}}</strong>
+        </div>
+        <div class="hotel-card__district">
+          <template is="dom-repeat" items="[[_renderStars(item.stars)]]">
+            <iron-image class="hotel-card__rating-star" fade src="https://assets.wego.com/image/upload/kabru/hstar.png"></iron-image>
+          </template>
+          {{item.district}}
         </div>
         <div>
+          [[_roundUpDistance(item.distanceToCityCentre)]] km to city centre
+        </div>
+        <div class="hotel-card__score-container">
+          <template is="dom-if" if="{{item.review.score}}">
+            <div class="bubble-container">
+              <iron-icon class="hotel-card__score-bubble" icon$="review-score:[[_renderScoreBubbleColour(item.review.score)]]"></iron-icon>
+              <div class="hotel-card__score-bubble-text">{{item.review.score}}</div>
+            </div>
+          </template>
           <div>
-            Excellent
-          </div>
-          <div>
-            559 reviews
+            <div>
+              [[_renderScoreSummary(item.review.score)]]
+            </div>
+            <div>
+              [[_checkReviewsCountDefined(item.review.reviewsCount)]] Reviews
+            </div>
           </div>
         </div>
       </div>
-      <!--
-      <div class="vertical-center">
-        <ul>
-          <li>
-            <strong>Anulekha Resort and Villa</strong>
-          </li>
-          <li>
-            <iron-image class="hotel-card__rating-star" fade src="https://assets.wego.com/image/upload/kabru/hstar.png"></iron-image>
-            Ubud
-          </li>
-          <li>
-            17.4008km to city centre
-          </li>
-          <li>
-            <div class="hotel-card__score-container">
-              <iron-icon class="hotel-card__score-bubble" icon="review-score:good"></iron-icon>
-              <div class="samplee">
-                Excellent
-                <br/>
-                559 reviews
-              </div>
-            </div>
-          </li>
 
-        </ul>
+      <!-- pricing/currency -->
+      <div class="hotel-card__price">
+        <div>
+          <small>S$</small>{{item.amount}}
+        </div>
       </div>
-      -->
-    </div>
 
-    <div class="hotel-card__price">
-      <div>
-        <small>S$</small>46
-      </div>
     </div>
-  </div>
-  <div class="hotel-card">a</div>
-  <div class="hotel-card">a</div>
-  <div class="hotel-card">a</div>
-  <div class="hotel-card">a</div>
-  <div class="hotel-card">a</div>
-  <div class="hotel-card">a</div>
-</div>
-
-<!--
-<dom-repeat items="{{ajaxResponse}}">
-  <template>
-    <div>Name: <span>{{item.name}}</span></div>
-    <div>ID: <span>{{item.id}}</span></div>
   </template>
 </dom-repeat>
--->
+</div>

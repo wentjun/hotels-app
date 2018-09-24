@@ -10,6 +10,10 @@
   box-sizing: border-box;
 }
 
+strong {
+  color: #2e3131;
+}
+
 ul {
   list-style: none;
   text-align: left;
@@ -19,34 +23,8 @@ ul {
   }
 }
 
-app-drawer-layout:not([narrow]) [drawer-toggle] {
-  display: none;
-}
-
-app-header {
-  color: #fff;
-  background-color: var(--app-primary-color);
-
-  paper-icon-button {
-    --paper-icon-button-ink-color: #fff;
-  }
-}
-
-.drawer-list {
-  margin: 0 20px;
-
-  a {
-    display: block;
-    padding: 0 16px;
-    text-decoration: none;
-    color: var(--app-secondary-color);
-    line-height: 40px;
-
-    &.iron-selected {
-      color: black;
-      font-weight: bold;
-    }
-  }
+#placeholder {
+  width: 100% !important;
 }
 
 /* Main grid/list view */
@@ -60,6 +38,7 @@ app-header {
 .hotel-card {
   height: calc(100vh / 6);
   background: white;
+  color: #6c7a89;
   border: 1px solid #e6e6e6;
   padding: 2px;
 
@@ -74,12 +53,15 @@ app-header {
 /* Hotel image block */
 .hotel-card__image-container {
   max-width: 30vw;
+  width: 25vw;
 }
 
 .hotel-card__iron-image {
   height: 100%;
+  max-height: calc(100vh / 6);
   --iron-image-height: 100%;
   object-fit: contain;
+  width: 100%;
 }
 
 /* Hotel meta data block */
@@ -93,6 +75,17 @@ app-header {
 
 .hotel-card__main-body > div {
   font-size: 0.8em;
+}
+
+.hotel-card__name {
+  max-width: 40vw;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.hotel-card__district {
+  text-transform: uppercase;
 }
 
 .hotel-card__rating-star {
@@ -111,6 +104,9 @@ app-header {
 
 .bubble-container {
   max-width: 39px;
+
+  position: relative;
+  text-align: center;
 }
 
 .hotel-card__score-bubble {
@@ -128,6 +124,14 @@ app-header {
   align-content: center;
 }
 
+.hotel-card__score-bubble-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-80%, -80%);
+  color: white;
+}
+
 /* Hotel pricing block */
 
 .hotel-card__price {
@@ -136,6 +140,7 @@ app-header {
   display: flex;
   flex-direction: column-reverse;
   align-items: flex-end;
+  font-size: 1.2em;
 
   small {
     bottom: 0.4em;
