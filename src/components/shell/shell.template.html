@@ -115,7 +115,9 @@
           <strong>{{item.name}}</strong>
         </div>
         <div>
-          <iron-image class="hotel-card__rating-star" fade src="https://assets.wego.com/image/upload/kabru/hstar.png"></iron-image>
+          <template is="dom-repeat" items="[[_renderStars(item.stars)]]">
+            <iron-image class="hotel-card__rating-star" fade src="https://assets.wego.com/image/upload/kabru/hstar.png"></iron-image>
+          </template>
           {{item.district}}
         </div>
         <div>
