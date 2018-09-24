@@ -40,11 +40,6 @@ export class MyApp extends PolymerElement {
         type: Number,
         value: 5
       },
-      _arrayContainer: {
-        type: Array,
-        value: [],
-        computed: '_numberToArray(totalNo)'
-      },
       page: {
         type: String,
         reflectToAttribute: true,
@@ -91,7 +86,7 @@ export class MyApp extends PolymerElement {
     let iconType = '';
     switch (true) {
       case score < 68:
-        iconType = 'bad';
+        iconType = 'poor';
         break;
       case score < 75:
         iconType = 'fair';
@@ -129,5 +124,13 @@ export class MyApp extends PolymerElement {
 
   _roundUpDistance(distance: Number) {
     return distance.toFixed(2);
+  }
+
+  _checkReviewsCountDefined(reviewsCount: Number) {
+    if (!reviewsCount) {
+      return 0;
+    } else {
+      return reviewsCount;
+    }
   }
 }
