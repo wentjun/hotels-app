@@ -10,6 +10,10 @@
   box-sizing: border-box;
 }
 
+strong {
+  color: #2e3131;
+}
+
 ul {
   list-style: none;
   text-align: left;
@@ -64,6 +68,7 @@ app-header {
 .hotel-card {
   height: calc(100vh / 6);
   background: white;
+  color: #6c7a89;
   border: 1px solid #e6e6e6;
   padding: 2px;
 
@@ -100,6 +105,10 @@ app-header {
 
 .hotel-card__main-body > div {
   font-size: 0.8em;
+}
+
+.hotel-card__district {
+  text-transform: uppercase;
 }
 
 .hotel-card__rating-star {
