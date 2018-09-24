@@ -126,4 +126,8 @@ export class MyApp extends PolymerElement {
 
     return scoreSummary;
   }
+
+  _roundUpDistance(distance: Number) {
+    return distance.toFixed(2);
+  }
 }
