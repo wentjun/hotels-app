@@ -19,6 +19,10 @@ ul {
   }
 }
 
+#placeholder {
+  width: 100% !important;
+}
+
 app-drawer-layout:not([narrow]) [drawer-toggle] {
   display: none;
 }
@@ -74,12 +78,15 @@ app-header {
 /* Hotel image block */
 .hotel-card__image-container {
   max-width: 30vw;
+  width: 25vw;
 }
 
 .hotel-card__iron-image {
   height: 100%;
+  max-height: calc(100vh / 6);
   --iron-image-height: 100%;
   object-fit: contain;
+  width: 100%;
 }
 
 /* Hotel meta data block */
