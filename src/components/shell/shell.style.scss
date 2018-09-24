@@ -118,6 +118,9 @@ app-header {
 
 .bubble-container {
   max-width: 39px;
+
+  position: relative;
+  text-align: center;
 }
 
 .hotel-card__score-bubble {
@@ -133,6 +136,14 @@ app-header {
   align-items: flex-start;
   justify-content: flex-start;
   align-content: center;
+}
+
+.hotel-card__score-bubble-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-80%, -80%);
+  color: white;
 }
 
 /* Hotel pricing block */
