@@ -107,6 +107,13 @@ app-header {
   font-size: 0.8em;
 }
 
+.hotel-card__name {
+  max-width: 40vw;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
 .hotel-card__district {
   text-transform: uppercase;
 }
