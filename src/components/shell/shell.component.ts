@@ -86,4 +86,21 @@ export class MyApp extends PolymerElement {
 
     return starCountArray;
   }
+
+  _renderScoreBubbleColour(score: Number) {
+    let iconType = '';
+    switch (true) {
+      case score < 68:
+        iconType = 'bad';
+        break;
+      case score < 75:
+        iconType = 'fair';
+        break;
+      case score <= 100:
+        iconType = 'good';
+        break;
+    }
+
+    return iconType;
+  }
 }
